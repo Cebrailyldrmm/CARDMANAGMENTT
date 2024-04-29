@@ -12,29 +12,34 @@ namespace CardFinder.Bussiness.Concrete
 {
     public class CardManager : IServices<Cardd>
     {
+        private ICardRepository<Cardd> _cardRepository;
+        public CardManager()
+        {
+            _cardRepository = new CardRepository();
+        }
         public Cardd Create(Cardd K)
         {
-            throw new NotImplementedException();
+            return _cardRepository.CreateCard(K);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _cardRepository.DeleteCard(id);
         }
 
         public List<Cardd> GetAllCards()
         {
-            throw new NotImplementedException();
+            return _cardRepository.GetAllCards(); ;
         }
 
         public Cardd GetById(int id)
         {
-            throw new NotImplementedException();
+            return _cardRepository.GetCardById(id);
         }
 
         public Cardd Update(Cardd K)
         {
-            throw new NotImplementedException();
+            return _cardRepository.UpdateCard(K);
         }
     }
 }
